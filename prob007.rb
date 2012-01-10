@@ -1,13 +1,11 @@
 require 'generator'
 def prime_gen()
 	return  Generator.new { |g| 
-		primes = []
-		n = 2
+		list = (2..2000).to_a
+		n = 0
 		while 1 do
-			if primes.count{ |p| n%p == 0 } == 0 then
-				primes << n 
-				g.yield n
-			end
+			g.yield list[n]
+			list.delete_if{ |x| x%list[n] == 0 }
 			n += 1
 		end
 	}
@@ -15,7 +13,7 @@ end
 
 g = prime_gen()
 
-for i in 1..1000 do
-	g.next
+for i in 1..10 do
+	puts g.next
 end
 puts g.next
