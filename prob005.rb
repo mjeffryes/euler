@@ -1,4 +1,4 @@
-require "../prob003/attempt1.rb"
+require "prob003.rb"
 
 factors = {}
 
