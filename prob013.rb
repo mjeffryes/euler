@@ -101,7 +101,7 @@ s = """
 53503534226472524250874054075591789781264330331690
 """
 
-a = s.split(' ').map{ |line| line.to_i }
+a = s.split(' ').map{ |line| line.split(0..10).to_i }
 sum = a.reduce(:+)
 puts sum
 digits = sum.to_s.slice(0..9)
