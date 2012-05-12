@@ -1,10 +1,11 @@
+
 def chain_len( n )
-	count = 1
-	while n != 1
-		n = ( n%2 == 0 ? n/2 : 3*n + 1 )
-		count += 1
+	return 1 if n == 1
+	if n%2 == 0
+		return chain_len( n/2 ) + 1 
+	else
+		return chain_len( 3*n + 1 ) + 1
 	end
-	return count
 end
 
 def prob014()
