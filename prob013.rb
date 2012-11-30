@@ -1,3 +1,4 @@
+require 'benchmark'
 s = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -100,9 +101,11 @@ s = """
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 """
-
-a = s.split(' ').map{ |line| line.split(0..10).to_i }
+time = Benchmark.realtime do
+a = s.split(' ').map{ |line| line.slice(0..10).to_i }
 sum = a.reduce(:+)
 puts sum
 digits = sum.to_s.slice(0..9)
 puts digits
+end
+puts "Time elapsed: #{time}ms"

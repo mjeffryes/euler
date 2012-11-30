@@ -1,7 +1,7 @@
 def listfactors( value )
 	list = []
 	factor = 2
-	while factor < value do
+	while factor <= Math.sqrt(value) do
 		if( value % factor == 0 )
 			list << factor 
 			value /= factor

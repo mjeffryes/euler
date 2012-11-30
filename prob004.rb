@@ -4,6 +4,7 @@ def gen_dec_multiples( max )
 	n = max*2
 	while n > 0 do
 		for i in (((n+1)/2)..max)
+			p max, n, i, n-i 
 			g.yield i*(n-i)
 		end
 		n -= 1
